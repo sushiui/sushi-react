@@ -8,14 +8,11 @@ const SSPage = () => {
         <span className='label'>Welcome</span>
       </div>
       <div className='body'>
-        <SSCard />
-        <div className='ss-card'>
-          <div className='header'>
-            <span className='label'>Example</span>
-          </div>
-          <div className='body _padding'>Example</div>
-        </div>
-        <div className='ss-card'>
+        <SSCard>
+          <div className='header'>Structure</div>
+          <div className='body'>I am a body</div>
+        </SSCard>
+        <SSCard>
           <div className='header'>
             <span className='label'>Structure</span>
           </div>
@@ -28,7 +25,7 @@ const SSPage = () => {
               width='100%'
             />
           </div>
-        </div>
+        </SSCard>
       </div>
     </div>
   );
