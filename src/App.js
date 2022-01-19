@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SSMenu from "./components/ss-menu";
+import SSPage from "./components/ss-page";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='ss-site'>
+      <div className='header _flex-grow-1'>
+        <span className='sitename'>
+          <span className='ss-icon-Sushi'></span>
+          Sushi Design System
+        </span>
+        <div className='_flex-grow-1'></div>
+        <span className='account'>
+          <button className='ss-button -secondary'>
+            <span className='ss-icon-Picture'></span>
+            Background
+          </button>
+        </span>
+      </div>
+      <div className='body'>
+        <SSMenu />
+        <SSPage />
+      </div>
     </div>
   );
 }
