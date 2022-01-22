@@ -1,7 +1,18 @@
 // import react from "react";
 
 const SsCard = (props) => {
-  return <div className='ss-card'>{props.children}</div>;
+  if (props.title) {
+    return (
+      <div className='ss-card'>
+        <SsCard.Header>
+          <span className='label'>{props.title}</span>
+        </SsCard.Header>
+        {props.children}
+      </div>
+    );
+  } else {
+    return <div className='ss-card'>{props.children}</div>;
+  }
 };
 
 SsCard.Header = (props) => (

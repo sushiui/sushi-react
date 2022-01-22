@@ -1,7 +1,7 @@
 // import react from "react";
 
-const SsIcon = (props) => {
-  return <span className={`ss-icon-${props.name}`}></span>;
+const SsIcon = ({ name }) => {
+  return <span className={`ss-icon-${name}`}></span>;
 };
 
 export default SsIcon;

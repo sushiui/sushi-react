@@ -28,8 +28,7 @@ function App() {
             <span className='label'>Welcome</span>
           </SsPage.Header>
           <SsPage.Body>
-            <SsCard>
-              <SsCard.Header>Structure</SsCard.Header>
+            <SsCard title='Structure'>
               <SsCard.Body>I am a body</SsCard.Body>
             </SsCard>
             <SsCard>
