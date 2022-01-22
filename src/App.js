@@ -1,13 +1,16 @@
 import "./App.css";
-import SSMenu from "./components/ss-menu";
-import SSPage from "./components/ss-page";
+import SsMenu from "./components/ss-menu";
+import SsPage from "./components/ss-page";
+import SsSite from "./components/ss-site";
+import SsIcon from "./components/ss-icon";
+import SsCard from "./components/ss-card";
 
 function App() {
   return (
-    <div className='ss-site'>
-      <div className='header _flex-grow-1'>
+    <SsSite>
+      <SsSite.Header className=' _flex-grow-1'>
         <span className='sitename'>
-          <span className='ss-icon-Sushi'></span>
+          <SsIcon name='Sushi' />
           Sushi Design System
         </span>
         <div className='_flex-grow-1'></div>
@@ -17,12 +20,36 @@ function App() {
             Background
           </button>
         </span>
-      </div>
-      <div className='body'>
-        <SSMenu />
-        <SSPage />
-      </div>
-    </div>
+      </SsSite.Header>
+      <SsSite.Body>
+        <SsMenu />
+        <SsPage>
+          <SsPage.Header className='-nobreadcrumbs'>
+            <span className='label'>Welcome</span>
+          </SsPage.Header>
+          <SsPage.Body>
+            <SsCard>
+              <SsCard.Header>Structure</SsCard.Header>
+              <SsCard.Body>I am a body</SsCard.Body>
+            </SsCard>
+            <SsCard>
+              <SsCard.Header>
+                <span className='label'>Structure</span>
+              </SsCard.Header>
+              <SsCard.Body className='_padding'>
+                โครงสร้างของ App ประกอบด้วย 3 ชั้นคือ Site, Page และ Card
+                โดยในแต่ละชั้นจะมี Header และ Body เป็นของตัวเอง
+                <img
+                  alt='structure description'
+                  src='https://sushiui.github.io/sushi/assets/images/structure.png'
+                  width='100%'
+                />
+              </SsCard.Body>
+            </SsCard>
+          </SsPage.Body>
+        </SsPage>
+      </SsSite.Body>
+    </SsSite>
   );
 }
 

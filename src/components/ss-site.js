@@ -1,14 +1,14 @@
 // import react from "react";
 
-const SsPage = (props) => {
-  return <div className='ss-page'>{props.children}</div>;
+const SsSite = (props) => {
+  return <div className='ss-site'>{props.children}</div>;
 };
 
-SsPage.Header = (props) => (
+SsSite.Header = (props) => (
   <div className={`header ${props.className}`}>{props.children}</div>
 );
-SsPage.Body = (props) => (
+SsSite.Body = (props) => (
   <div className={`body ${props.className}`}>{props.children}</div>
 );
 
-export default SsPage;
+export default SsSite;

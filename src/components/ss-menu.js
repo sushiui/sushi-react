@@ -1,56 +1,57 @@
-import react from "react";
+// import react from "react";
+import SsIcon from "./ss-icon";
 
-const SSMenu = (props) => {
+const SsMenu = (props) => {
   return (
     <div className='menu'>
       <ul className='ss-menu'>
         <li className='selected'>
           <a href='index.html'>
-            <span className='ss-icon-Home'></span>
+            <SsIcon name='Home' />
             <span className='label'>Home</span>
             <div className='selected-box'>&nbsp;</div>
           </a>
         </li>
         <li>
           <a href='icon.html'>
-            <span className='ss-icon-Settings-suggest'></span>
+            <SsIcon name='Settings-suggest' />
             <span className='label'>Icon</span>
           </a>
         </li>
         <li>
           <a href='abc.html'>
-            <span className='ss-icon-Table-view'></span>
+            <SsIcon name='Table-view' />
             <span className='label'>Component</span>
             <span className='ss-icon-Maximize-arrow'></span>
           </a>
         </li>
         <li>
           <a href='button.html'>
-            <span className='ss-icon-Status-circle'></span>
+            <SsIcon name='Status-circle' />
             <span className='label'>Button</span>
           </a>
         </li>
         <li>
           <a href='textfield.html'>
-            <span className='ss-icon-Status-circle'></span>
+            <SsIcon name='Status-circle' />
             <span className='label'>Textfield</span>
           </a>
         </li>
         <li>
           <a href='menu.html'>
-            <span className='ss-icon-Status-circle'></span>
+            <SsIcon name='Status-circle' />
             <span className='label'>Page Menu</span>
           </a>
         </li>
         <li>
           <a href='pageheader.html'>
-            <span className='ss-icon-Status-circle'></span>
+            <SsIcon name='Status-circle' />
             <span className='label'>Page Header</span>
           </a>
         </li>
         <li>
           <a href='siteheader.html'>
-            <span className='ss-icon-Status-circle'></span>
+            <SsIcon name='Status-circle' />
             <span className='label'>Site Header</span>
           </a>
         </li>
@@ -59,4 +60,4 @@ const SSMenu = (props) => {
   );
 };
 
-export default SSMenu;
+export default SsMenu;
