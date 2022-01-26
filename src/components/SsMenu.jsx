@@ -1,62 +1,49 @@
-import { Link } from "react-router-dom";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import SsIcon from "./SsIcon";
 
 const SsMenu = (props) => {
+
+  const menus = [
+    {index:'index', title:'Home',path:'/',icon:'Home'},
+    {index:'icon', title:'Icon',path:'icon',icon:'Settings-suggest'},
+    {index:'component', title:'Component',path:'',icon:'Table-view'},
+    {index:'button', title:'Button',path:'button',icon:'Status-circle'},
+    {index:'textfield', title:'Textfield',path:'textfield',icon:'Status-circle'},
+    {index:'menu', title:'Page Menu',path:'menu',icon:'Status-circle'},
+    {index:'pageheader', title:'Page Header',path:'pageheader',icon:'Status-circle'},
+    {index:'siteheader', title:'Site Header',path:'siteheader',icon:'Status-circle'},
+  ]
+
+  const CustomLink = ({path , children}) => {
+    let resolved = useResolvedPath(path);
+    let match = useMatch({ path: resolved.pathname, end: true})
+
+    if (path == '') {
+      return <li><div className="title">{children}</div></li>;
+    }
+
+    return (
+      <li className={match ? 'selected' : ''}>
+        <Link to={path}>
+          {children}
+        </Link>
+      </li>
+    );
+  };
+
+  const menuHTML = menus.map((menu) => {
+    return (
+      <CustomLink key={menu.index} path={menu.path}>
+        <SsIcon name={menu.icon} />
+        <span className='label'>{menu.title}</span>
+      </CustomLink>
+    );
+  });
+
   return (
-    <div className='menu'>
-      <ul className='ss-menu'>
-        <li className='selected'>
-          <Link to="/">
-            <SsIcon name='Home' />
-            <span className='label'>Home</span>
-            <div className='selected-box'>&nbsp;</div>
-          </Link>
-        </li>
-        <li>
-          <a href='icon.html'>
-            <SsIcon name='Settings-suggest' />
-            <span className='label'>Icon</span>
-          </a>
-        </li>
-        <li>
-          <a href='abc.html'>
-            <SsIcon name='Table-view' />
-            <span className='label'>Component</span>
-            <span className='ss-icon-Maximize-arrow'></span>
-          </a>
-        </li>
-        <li>
-          <Link to="/button">
-            <SsIcon name='Status-circle' />
-            <span className='label'>Button</span>
-          </Link>
-        </li>
-        <li>
-          <a href='textfield.html'>
-            <SsIcon name='Status-circle' />
-            <span className='label'>Textfield</span>
-          </a>
-        </li>
-        <li>
-          <a href='menu.html'>
-            <SsIcon name='Status-circle' />
-            <span className='label'>Page Menu</span>
-          </a>
-        </li>
-        <li>
-          <a href='pageheader.html'>
-            <SsIcon name='Status-circle' />
-            <span className='label'>Page Header</span>
-          </a>
-        </li>
-        <li>
-          <a href='siteheader.html'>
-            <SsIcon name='Status-circle' />
-            <span className='label'>Site Header</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ul className='ss-menu'>
+      {menuHTML}
+    </ul>
   );
 };
 

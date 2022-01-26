@@ -22,7 +22,9 @@ const Layout = () => {
         </span>
       </SsHeader>
       <SsBody>
-        <SsMenu />
+        <div className='menu-panel'>
+          <SsMenu />
+        </div>
         <Outlet />
       </SsBody>
     </SsSite>
