@@ -1,16 +1,16 @@
-// import react from "react";
-import SsIcon from "./ss-icon";
+import { Link } from "react-router-dom";
+import SsIcon from "./SsIcon";
 
 const SsMenu = (props) => {
   return (
     <div className='menu'>
       <ul className='ss-menu'>
         <li className='selected'>
-          <a href='index.html'>
+          <Link to="/">
             <SsIcon name='Home' />
             <span className='label'>Home</span>
             <div className='selected-box'>&nbsp;</div>
-          </a>
+          </Link>
         </li>
         <li>
           <a href='icon.html'>
@@ -26,10 +26,10 @@ const SsMenu = (props) => {
           </a>
         </li>
         <li>
-          <a href='button.html'>
+          <Link to="/button">
             <SsIcon name='Status-circle' />
             <span className='label'>Button</span>
-          </a>
+          </Link>
         </li>
         <li>
           <a href='textfield.html'>

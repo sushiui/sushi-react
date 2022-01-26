@@ -1,9 +1,9 @@
-import SsPage from "../components/ss-page";
-import SsCard from "../components/ss-card";
-import SsHeader from "../components/ss-header";
-import SsBody from "../components/ss-body";
+import SsPage from "../components/SsPage";
+import SsCard from "../components/SsCard";
+import SsHeader from "../components/SsHeader";
+import SsBody from "../components/SsBody";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <SsPage>
       {/* TODO Move -nobreadcrumbs to props */}
@@ -33,4 +33,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

@@ -1,5 +1,6 @@
 import "./App.css";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
+import ButtonPage from "./pages/ButtonPage";
 import Layout from "./Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -8,7 +9,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<HomePage />} />
+          <Route path='/button' element={<ButtonPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

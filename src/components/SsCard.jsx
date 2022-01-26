@@ -1,4 +1,4 @@
-import SsHeader from "./ss-header";
+import SsHeader from "./SsHeader";
 
 const SsCard = (props) => {
   if (props.title) {

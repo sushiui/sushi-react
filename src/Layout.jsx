@@ -1,8 +1,8 @@
-import SsMenu from "./components/ss-menu";
-import SsSite from "./components/ss-site";
-import SsIcon from "./components/ss-icon";
-import SsBody from "./components/ss-body";
-import SsHeader from "./components/ss-header";
+import SsMenu from "./components/SsMenu";
+import SsSite from "./components/SsSite";
+import SsIcon from "./components/SsIcon";
+import SsBody from "./components/SsBody";
+import SsHeader from "./components/SsHeader";
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {
