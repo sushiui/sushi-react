@@ -1,22 +1,24 @@
 import SsPage from "../components/ss-page";
 import SsCard from "../components/ss-card";
+import SsHeader from "../components/ss-header";
+import SsBody from "../components/ss-body";
 
 const Home = () => {
   return (
     <SsPage>
       {/* TODO Move -nobreadcrumbs to props */}
-      <SsPage.Header className='-nobreadcrumbs'>
+      <SsHeader className='-nobreadcrumbs'>
         <span className='label'>Welcome</span>
-      </SsPage.Header>
-      <SsPage.Body>
+      </SsHeader>
+      <SsBody>
         <SsCard title='Structure'>
-          <SsCard.Body>I am a body</SsCard.Body>
+          <SsBody>I am a body</SsBody>
         </SsCard>
         <SsCard>
-          <SsCard.Header>
+          <SsHeader>
             <span className='label'>Structure</span>
-          </SsCard.Header>
-          <SsCard.Body className='_padding'>
+          </SsHeader>
+          <SsBody className='_padding'>
             โครงสร้างของ App ประกอบด้วย 3 ชั้นคือ Site, Page และ Card
             โดยในแต่ละชั้นจะมี Header และ Body เป็นของตัวเอง
             <img
@@ -24,9 +26,9 @@ const Home = () => {
               src='https://sushiui.github.io/sushi/assets/images/structure.png'
               width='100%'
             />
-          </SsCard.Body>
+          </SsBody>
         </SsCard>
-      </SsPage.Body>
+      </SsBody>
     </SsPage>
   );
 };

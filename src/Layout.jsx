@@ -1,12 +1,14 @@
 import SsMenu from "./components/ss-menu";
 import SsSite from "./components/ss-site";
 import SsIcon from "./components/ss-icon";
+import SsBody from "./components/ss-body";
+import SsHeader from "./components/ss-header";
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
     <SsSite>
-      <SsSite.Header className=' _flex-grow-1'>
+      <SsHeader className=' _flex-grow-1'>
         <span className='sitename'>
           <SsIcon name='Sushi' />
           Sushi Design System
@@ -18,11 +20,11 @@ const Layout = () => {
             Background
           </button>
         </span>
-      </SsSite.Header>
-      <SsSite.Body>
+      </SsHeader>
+      <SsBody>
         <SsMenu />
         <Outlet />
-      </SsSite.Body>
+      </SsBody>
     </SsSite>
   );
 };
