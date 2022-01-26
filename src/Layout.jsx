@@ -37,7 +37,7 @@ const Layout = () => {
       </SsHeader>
       <SsBody>
         <div className='menu-panel'>
-          <SsMenu menus={menus}/>
+          <SsMenu menus={menus} location={currentLocation} />
         </div>
         <Outlet />
       </SsBody>

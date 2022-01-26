@@ -1,11 +1,13 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import SsIcon from "./SsIcon";
 
-const SsMenu = ({menus}) => {
+const SsMenu = ({menus, location}) => {
 
   const MenuItem = ({path , children}) => {
     let resolved = useResolvedPath(path);
-    let match = useMatch({ path: resolved.pathname, end: true})
+
+    // let match = useMatch({ path: resolved.pathname, end: true})
+    let match = resolved.pathname === location.pathname;
 
     if (path === '') {
       return <li><div className="title">{children}</div></li>;
