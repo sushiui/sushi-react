@@ -1,19 +1,20 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SsIcon from "./SsIcon";
 
 type Menus = {
   index:string,
   title:string,
   path:string,
-  icon:string
+  icon:string,
+  selected?:boolean,
 }[]
 
 type Props = {
   menus: Menus,
-  location: Partial<Location>;
+  currentPath: string;
 }
 
-const SsMenu = ({menus, location}:Props) => {
+export default function SsMenu ({menus, currentPath}:Props) {
 
   type Props = {
     path:string,
@@ -21,17 +22,12 @@ const SsMenu = ({menus, location}:Props) => {
   }
 
   const MenuItem = ({path , children}:Props) => {
-    let resolved = useResolvedPath(path);
-
-    // let match = useMatch({ path: resolved.pathname, end: true})
-    let match = resolved.pathname === location.pathname;
-
     if (path === '') {
       return <li><div className="title">{children}</div></li>;
     }
 
     return (
-      <li className={match ? 'selected' : ''}>
+      <li className={path === currentPath ? 'selected' : ''}>
         <Link to={path}>
           {children}
         </Link>
@@ -55,5 +51,4 @@ const SsMenu = ({menus, location}:Props) => {
   );
 };
 
-export default SsMenu;
 export type {Menus};
