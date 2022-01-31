@@ -2,7 +2,7 @@ import SsPage from "../components/SsPage";
 import SsHeader from "../components/SsHeader";
 import SsBody from "../components/SsBody";
 
-const ButtonPage = props => {
+const ButtonPage = () => {
   return (
     <SsPage>
       <SsHeader className='-nobreadcrumbs'>
