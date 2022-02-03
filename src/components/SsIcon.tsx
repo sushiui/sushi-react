@@ -1,8 +1,8 @@
-type Props = {
+type ssIconProps = {
   name: string;
 }
 
-const SsIcon = ({ name }:Props) => {
+const SsIcon = ({ name }:ssIconProps) => {
   return <span className={`ss-icon-${name}`}></span>;
 };
 

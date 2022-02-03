@@ -11,3 +11,8 @@ body,
 .ss-site {
   height: 100%;
 }
+
+._flex-row {
+  display: flex;
+  gap: 8px;
+}

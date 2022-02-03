@@ -1,11 +1,11 @@
 import SsHeader from "./SsHeader";
 
-type Props = {
+type ssCardProps = {
   title?: string;
   children?: React.ReactNode;
 }
 
-const SsCard = ({title, children}:Props) => {
+const SsCard = ({title, children}:ssCardProps) => {
   if (title) {
     return (
       <div className='ss-card'>

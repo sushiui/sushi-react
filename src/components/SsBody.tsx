@@ -1,9 +1,9 @@
-type Props = {
+type ssBodyProps = {
   className?: string;
   children?: React.ReactNode;
 }
 
-const SsBody = ({ className, children }:Props) => (
+const SsBody = ({ className, children }:ssBodyProps) => (
   <div className={`body ${className ? className : ''}`}>{children}</div>
 );
 

@@ -1,8 +1,8 @@
-type Props = {
+type ssSiteProps = {
   children?: React.ReactNode;
 }
 
-const SsSite = ({children}:Props) => {
+const SsSite = ({children}:ssSiteProps) => {
   return <div className='ss-site'>{children}</div>;
 };
 
