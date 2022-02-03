@@ -1,9 +1,10 @@
 type ssPageProps = {
+  className?: string;
   children?: React.ReactNode;
 }
 
-const SsPage = ({children}:ssPageProps) => {
-  return <div className='ss-page'>{children}</div>;
-};
+const SsPage = ({ className, children }:ssPageProps) => (
+  <div className={`ss-page ${className ? className : ''}`}>{children}</div>
+);
 
 export default SsPage;

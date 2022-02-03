@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
-import { screen } from '@testing-library/dom'
+import { screen } from '@testing-library/dom';
+import { MemoryRouter } from "react-router-dom";
 import Button from "../SsButton";
 
 afterEach(() => {
@@ -63,10 +64,20 @@ describe('<Button>', () => {
     })
   });
 
-  describe('content', () => {
+  describe('show as link', () => {
     it('show link', () => {
       render(
         <Button link label='Label Text' />
+      );
+      const child = screen.getByText('Label Text');
+      expect(child?.tagName).toBe('A');
+    });
+
+    it('show link with path', () => {
+      render(
+        <MemoryRouter initialEntries={['/dashboard']}>
+          <Button link path="/" label='Label Text' />
+        </MemoryRouter>,
       );
       const child = screen.getByText('Label Text');
       expect(child?.tagName).toBe('A');

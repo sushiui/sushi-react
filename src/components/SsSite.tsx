@@ -1,9 +1,10 @@
 type ssSiteProps = {
+  className?: string;
   children?: React.ReactNode;
 }
 
-const SsSite = ({children}:ssSiteProps) => {
-  return <div className='ss-site'>{children}</div>;
-};
+const SsSite = ({ className, children }:ssSiteProps) => (
+  <div className={`ss-site ${className ? className : ''}`}>{children}</div>
+);
 
 export default SsSite;

@@ -1,5 +1,6 @@
 import { MouseEventHandler } from "react";
 import { classNames } from "../utilities/css"
+import { Link } from "react-router-dom";
 
 type ButtonProps = {
   onClick?: MouseEventHandler,
@@ -16,7 +17,8 @@ type ButtonProps = {
   blue?: boolean,
   purple?: boolean,
   gray?: boolean,
-  link?: boolean
+  link?: boolean,
+  path?: string
 }
 
 export default function Button({
@@ -35,6 +37,7 @@ export default function Button({
     purple,
     gray,
     link,
+    path,
   }: ButtonProps) {
 
   const spanLeftIcon:JSX.Element = leftIcon ? <span className={`ss-icon-${leftIcon}`} /> : <></>;
@@ -61,7 +64,11 @@ export default function Button({
     </>
   );
 
-  if(link) {
+  if(link && path) {
+    return (<Link className={className} to={path}>{childrens}</Link>)
+  }
+
+  if(link){
     return <a className={className} onClick={onClick}>{childrens}</a>
   }
 
