@@ -4,10 +4,11 @@ import SsIcon from "./components/SsIcon";
 import SsBody from "./components/SsBody";
 import SsHeader from "./components/SsHeader";
 import { Outlet, useLocation } from "react-router-dom";
+import type { Menus } from "./components/SsMenu";
 
 const Layout = () => {
 
-  const menus = [
+  const menus:Menus = [
     {index:'index', title:'Home',path:'/',icon:'Home'},
     {index:'icon', title:'Icon',path:'icon',icon:'Settings-suggest'},
     {index:'component', title:'Component',path:'',icon:'Table-view'},
