@@ -15,7 +15,8 @@ type ButtonProps = {
   orange?: boolean,
   blue?: boolean,
   purple?: boolean,
-  gray?: boolean
+  gray?: boolean,
+  link?: boolean
 }
 
 export default function Button({
@@ -32,7 +33,8 @@ export default function Button({
     orange,
     blue,
     purple,
-    gray
+    gray,
+    link,
   }: ButtonProps) {
 
   const spanLeftIcon:JSX.Element = leftIcon ? <span className={`ss-icon-${leftIcon}`} /> : <></>;
@@ -51,11 +53,17 @@ export default function Button({
     gray &&  "-gray",
   )
 
-  return (
-    <button className={className} onClick={onClick}>
+  const childrens:JSX.Element = (
+    <>
       {spanLeftIcon}
       {content}
       {spanRightIcon}
-    </button>
-  )
+    </>
+  );
+
+  if(link) {
+    return <a className={className} onClick={onClick}>{childrens}</a>
+  }
+
+  return <button className={className} onClick={onClick}>{childrens}</button>
 };

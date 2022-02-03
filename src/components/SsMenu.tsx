@@ -9,19 +9,19 @@ type Menus = {
   selected?:boolean,
 }[]
 
-type Props = {
+type ssMenuProps = {
   menus: Menus,
   currentPath: string;
 }
 
-export default function SsMenu ({menus, currentPath}:Props) {
+export default function SsMenu ({menus, currentPath}:ssMenuProps) {
 
-  type Props = {
+  type menuItemProps = {
     path:string,
     children: React.ReactNode,
   }
 
-  const MenuItem = ({path , children}:Props) => {
+  const MenuItem = ({path , children}:menuItemProps) => {
     if (path === '') {
       return <li><div className="title">{children}</div></li>;
     }

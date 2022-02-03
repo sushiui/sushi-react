@@ -38,12 +38,12 @@ describe('<Button>', () => {
   describe('content', () => {
     it('overide content with label', () => {
       render(
-        <Button label='Public'>
-          <b>Private</b>
+        <Button label='Label Text'>
+          Children Text
         </Button>
       );
-      expect(screen.getByText('Public')).toBeInTheDocument();
-      expect(screen.queryByText('Private')).not.toBeInTheDocument();
+      expect(screen.getByText('Label Text')).toBeInTheDocument();
+      expect(screen.queryByText('Children Text')).not.toBeInTheDocument();
     });
   });
 
@@ -61,5 +61,15 @@ describe('<Button>', () => {
       );
       expect(container.firstChild).toHaveClass("-purplish-blue");
     })
+  });
+
+  describe('content', () => {
+    it('show link', () => {
+      render(
+        <Button link label='Label Text' />
+      );
+      const child = screen.getByText('Label Text');
+      expect(child?.tagName).toBe('A');
+    });
   });
 });
