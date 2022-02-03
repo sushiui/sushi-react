@@ -9,7 +9,7 @@ export default function App() {
 
   const menus:Menus = [
     {index:'index', title:'Home',path:'/',icon:'Home'},
-    {index:'icon', title:'Icon',path:'/icon',icon:'Settings-suggest', selected:true},
+    {index:'icon', title:'Icon',path:'/icon',icon:'Settings-suggest'},
     {index:'component', title:'Component',path:'',icon:'Table-view'},
     {index:'button', title:'Button',path:'/button',icon:'Status-circle'},
     {index:'textfield', title:'Textfield',path:'/textfield',icon:'Status-circle'},

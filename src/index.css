@@ -4,14 +4,6 @@ body,
   height: 100%;
 }
 
-#root {
-  height: 100%;
-}
-
-.ss-site {
-  height: 100%;
-}
-
 ._flex-row {
   display: flex;
   gap: 8px;
