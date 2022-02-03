@@ -17,8 +17,9 @@ type ButtonProps = {
   blue?: boolean,
   purple?: boolean,
   gray?: boolean,
+  disable?: boolean
   link?: boolean,
-  path?: string
+  path?: string,
 }
 
 export default function Button({
@@ -36,6 +37,7 @@ export default function Button({
     blue,
     purple,
     gray,
+    disable,
     link,
     path,
   }: ButtonProps) {
@@ -54,6 +56,8 @@ export default function Button({
     blue && "-sky-blue",
     purple && "-purplish-blue",
     gray &&  "-gray",
+    link && "ss-link",
+    disable && "disable"
   )
 
   const childrens:JSX.Element = (
@@ -66,6 +70,10 @@ export default function Button({
 
   if(link && path) {
     return (<Link className={className} to={path}>{childrens}</Link>)
+  }
+
+  if(path) {
+    return (<Link className={`ss-button ${className}`} to={path}>{childrens}</Link>)
   }
 
   if(link){

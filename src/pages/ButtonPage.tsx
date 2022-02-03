@@ -20,6 +20,19 @@ const codePrimary:string = `
 
 `;
 
+const codeLink:string = `
+<SsButton link label="link text" />
+`;
+
+const codePath:string = `
+<SsButton path="/" label="link text" />
+<SsButton link path="/" label="link text" />
+`;
+
+const codeDisable:string =`
+<SsButton label="link text" disable />
+<SsButton link label="link text" disable />
+`
 
 const ButtonPage = () => {
   return (
@@ -47,6 +60,32 @@ const ButtonPage = () => {
               <SsButton gray label="Gray Button"></SsButton>
             </div>
              <SsCode code={codePrimary} language="html" />
+          </SsBody>
+        </SsCard>
+        <SsCard title='&lt;SsButton link /&gt;'>
+          <SsBody>
+            <div className="_flex-row" >
+              <SsButton link label="link text" />
+            </div>
+             <SsCode code={codeLink} language="html" />
+          </SsBody>
+        </SsCard>
+        <SsCard title='&lt;SsButton path /&gt;'>
+          <SsBody>
+            <div className="_flex-row" >
+              <SsButton path="/" label="link text" />
+              <SsButton link path="/" label="link text" />
+            </div>
+             <SsCode code={codePath} language="html" />
+          </SsBody>
+        </SsCard>
+        <SsCard title='&lt;SsButton disable /&gt;'>
+          <SsBody>
+            <div className="_flex-row" >
+              <SsButton label="link text" disable />
+              <SsButton link label="link text" disable />
+            </div>
+             <SsCode code={codeDisable} language="html" />
           </SsBody>
         </SsCard>
       </SsBody>
