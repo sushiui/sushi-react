@@ -1,6 +1,7 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import ButtonPage from "./pages/ButtonPage";
+import IconPage from "./pages/IconPage";
 import Layout from "./Layout";
 import { Routes, Route, useLocation } from "react-router-dom";
 import type { Menus } from "./components/SsMenu";
@@ -22,6 +23,7 @@ export default function App() {
     <Routes>
       <Route path='/' element={<Layout menus={menus} currentPath={useLocation().pathname}/>} >
         <Route index element={<HomePage />} />
+        <Route path='/icon' element={<IconPage />} />
         <Route path='/button' element={<ButtonPage />} />
       </Route>
     </Routes>

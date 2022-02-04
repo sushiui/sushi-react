@@ -15,8 +15,10 @@ type Props = {
 
 const Layout = ({menus, currentPath}:Props) => {
 
+  const currentPage = `${currentPath.substring(1)}-page`;
+
   return (
-    <SsSite>
+    <SsSite className={currentPage}>
       <SsHeader>
         <span className='sitename'>
           <SsIcon name='Sushi' />

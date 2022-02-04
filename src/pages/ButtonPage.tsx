@@ -9,7 +9,6 @@ const codeSecondary:string = `
 <SsButton label="Primary Button"></SsButton>
 <SsButton>Another Label</SsButton>
 <SsButton leftIcon='Search' rightIcon='Search'>Another Label</SsButton>
-
 `;
 
 const codePrimary:string = `
@@ -17,7 +16,6 @@ const codePrimary:string = `
 <SsButton red label="Red Button"></SsButton>
 <SsButton yellow label="Yellow Button"></SsButton>
 <SsButton gray label="Gray Button"></SsButton>
-
 `;
 
 const codeLink:string = `

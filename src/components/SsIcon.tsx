@@ -1,9 +1,10 @@
 type ssIconProps = {
+  className?: string;
   name: string;
 }
 
-const SsIcon = ({ name }:ssIconProps) => {
-  return <span className={`ss-icon-${name}`}></span>;
+const SsIcon = ({ className, name }:ssIconProps) => {
+  return <span className={`ss-icon-${name} ${className ? className : ''}`}></span>;
 };
 
 export default SsIcon;

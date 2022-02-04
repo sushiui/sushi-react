@@ -14,7 +14,7 @@ export default function Code({ code, language }:CodeProps) {
   return (
     <div className="Code">
       <pre>
-        <code className={`language-${language}`}>{code}</code>
+        <code className={`language-${language}`}>{code.substring(1)}</code>
       </pre>
     </div>
   );
