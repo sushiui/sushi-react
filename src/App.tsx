@@ -4,7 +4,7 @@ import ButtonPage from "./pages/ButtonPage";
 import IconPage from "./pages/IconPage";
 import Layout from "./Layout";
 import { Routes, Route, useLocation } from "react-router-dom";
-import type { Menus } from "./components/SsMenu";
+import type { Menus } from "./sushi-components/SsMenu";
 
 export default function App() {
 

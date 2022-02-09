@@ -1,11 +1,11 @@
-import SsMenu from "./components/SsMenu";
-import SsSite from "./components/SsSite";
-import SsIcon from "./components/SsIcon";
-import SsBody from "./components/SsBody";
-import SsHeader from "./components/SsHeader";
-import SsButton from "./components/SsButton";
+import SsMenu from "./sushi-components/SsMenu";
+import SsSite from "./sushi-components/SsSite";
+import SsIcon from "./sushi-components/SsIcon";
+import SsBody from "./sushi-components/SsBody";
+import SsHeader from "./sushi-components/SsHeader";
+import SsButton from "./sushi-components/SsButton";
 import { Outlet } from "react-router-dom";
-import type { Menus } from "./components/SsMenu";
+import type { Menus } from "./sushi-components/SsMenu";
 import { changeBackground } from "./sushi"
 
 type Props = {

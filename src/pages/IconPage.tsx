@@ -1,9 +1,9 @@
-import SsPage from "../components/SsPage";
-import SsHeader from "../components/SsHeader";
-import SsBody from "../components/SsBody";
-import SsCard from "../components/SsCard";
-import SsIcon from "../components/SsIcon";
-import SsCode from "../components/SsCode";
+import SsPage from "../sushi-components/SsPage";
+import SsHeader from "../sushi-components/SsHeader";
+import SsBody from "../sushi-components/SsBody";
+import SsCard from "../sushi-components/SsCard";
+import SsIcon from "../sushi-components/SsIcon";
+import SsCode from "../sushi-components/SsCode";
 
 const iconNames = [
 'Access-alarm',

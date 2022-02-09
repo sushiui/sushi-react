@@ -1,7 +1,7 @@
-import SsPage from "../components/SsPage";
-import SsCard from "../components/SsCard";
-import SsHeader from "../components/SsHeader";
-import SsBody from "../components/SsBody";
+import SsPage from "../sushi-components/SsPage";
+import SsCard from "../sushi-components/SsCard";
+import SsHeader from "../sushi-components/SsHeader";
+import SsBody from "../sushi-components/SsBody";
 
 const HomePage = () => {
   return (

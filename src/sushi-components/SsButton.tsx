@@ -10,16 +10,20 @@ type ButtonProps = {
   rightIcon?: string,
   primary?: boolean,
   secondary?: boolean,
-  red?: boolean,
-  yellow?: boolean,
-  green?: boolean,
-  orange?: boolean,
-  blue?: boolean,
-  purple?: boolean,
-  gray?: boolean,
+  color?: 'red'|'yellow'|'green'|'orange'|'blue'|'purple'|'gray',
   disable?: boolean
   link?: boolean,
   path?: string,
+}
+
+const colorClassName = {
+  red: "-purplish-red",
+  yellow: "-yellow",
+  green: "-yellow-green",
+  orange: "-orange",
+  blue: "-sky-blue",
+  purple: "-purplish-blue",
+  gray:  "-gray",
 }
 
 export default function Button({
@@ -30,13 +34,7 @@ export default function Button({
     rightIcon,
     primary,
     secondary,
-    red,
-    yellow,
-    green,
-    orange,
-    blue,
-    purple,
-    gray,
+    color,
     disable,
     link,
     path,
@@ -49,13 +47,7 @@ export default function Button({
   const className = classNames(
     primary ? "" : "-secondary",
     secondary && "-secondary",
-    red && "-purplish-red",
-    yellow && "-yellow",
-    green && "-yellow-green",
-    orange && "-orange",
-    blue && "-sky-blue",
-    purple && "-purplish-blue",
-    gray &&  "-gray",
+    color && colorClassName[color],
     link && "ss-link",
     disable && "disable"
   )

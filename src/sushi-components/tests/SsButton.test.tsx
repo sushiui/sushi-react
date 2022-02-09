@@ -11,8 +11,7 @@ describe('<Button>', () => {
   describe('children', () => {
     it('assign children as String', () => {
       render(<Button>Label</Button>);
-      screen.getByText('Label');
-      expect(screen.getByRole('button')).toBeInTheDocument;
+      expect(screen.getByRole('button')).toBeInTheDocument();
       expect(screen.getByText('Label')).toBeInTheDocument();
     });
 
@@ -22,8 +21,7 @@ describe('<Button>', () => {
           <b>Private</b>
         </Button>
       );
-      screen.getByText('Private');
-      expect(screen.getByRole('button')).toBeInTheDocument;
+      expect(screen.getByRole('button')).toBeInTheDocument();
       const child = screen.getByText('Private');
       expect(child?.tagName).toBe('B');
     });
@@ -34,8 +32,8 @@ describe('<Button>', () => {
           <b>Private</b>
         </Button>
       );
-      expect(container.getElementsByTagName('span')[0]).toHaveClass('ss-icon-Search');
-      expect(container.getElementsByTagName('span')[1]).toHaveClass('ss-icon-Table-view');
+      expect(container.getElementsByClassName('ss-icon-Search')[0]).toBeInTheDocument();
+      expect(container.getElementsByClassName('ss-icon-Table-view')[0]).toBeInTheDocument();
     });
 
     it('overide children with label', () => {
@@ -44,7 +42,6 @@ describe('<Button>', () => {
           Children Text
         </Button>
       );
-      screen.getByText('Label Text');
       expect(screen.getByRole('button')).toBeInTheDocument;
       expect(screen.getByText('Label Text')).toBeInTheDocument();
       expect(screen.queryByText('Children Text')).not.toBeInTheDocument();
@@ -54,20 +51,18 @@ describe('<Button>', () => {
   describe('color', () => {
     it('show red button', () => {
       const { container } = render(
-        <Button red label='Red' />
+        <Button color="red" label='Red' />
       );
-      screen.getByText('Red');
       expect(screen.getByRole('button')).toBeInTheDocument;;
-      expect(container.firstChild).toHaveClass("-purplish-red");
+      expect(container.getElementsByClassName("-purplish-red")[0]).toBeInTheDocument();
     });
 
     it('show red button', () => {
       const { container } = render(
-        <Button purple label='Purple' />
+        <Button color="purple" label='Purple' />
       );
-      screen.getByText('Purple');
       expect(screen.getByRole('button')).toBeInTheDocument;
-      expect(container.firstChild).toHaveClass("-purplish-blue");
+      expect(container.getElementsByClassName("-purplish-blue")[0]).toBeInTheDocument();
     });
   });
 
@@ -78,7 +73,7 @@ describe('<Button>', () => {
       );
       const child = screen.getByText('Label Text');
       expect(child?.tagName).toBe('A');
-      expect(container.firstChild).toHaveClass("ss-link");
+      expect(container.getElementsByClassName("ss-link")[0]).toBeInTheDocument();
     });
   });
 
@@ -91,7 +86,7 @@ describe('<Button>', () => {
       );
       const child = screen.getByText('Label Text');
       expect(child?.tagName).toBe('A');
-      expect(container.firstChild).toHaveClass("ss-button");
+      expect(container.getElementsByClassName("ss-button")[0]).toBeInTheDocument();
     });
 
     it('show link that route to path', () => {
@@ -102,7 +97,7 @@ describe('<Button>', () => {
       );
       const child = screen.getByText('Label Text');
       expect(child?.tagName).toBe('A');
-      expect(container.firstChild).toHaveClass("ss-link");
+      expect(container.getElementsByClassName("ss-link")[0]).toBeInTheDocument();
     });
   });
 
@@ -113,7 +108,7 @@ describe('<Button>', () => {
       );
       const child = screen.getByText('Label Text');
       expect(child?.tagName).toBe('A');
-      expect(container.firstChild).toHaveClass("disable");
+      expect(container.getElementsByClassName("disable")[0]).toBeInTheDocument();
     });
     it('show button as disable', () => {
       const {container} = render(
@@ -121,7 +116,7 @@ describe('<Button>', () => {
       );
       screen.getByText('Label Text');
       expect(screen.getByRole('button')).toBeInTheDocument;
-      expect(container.firstChild).toHaveClass("disable");
+      expect(container.getElementsByClassName("disable")[0]).toBeInTheDocument();
     });
   });
 });
