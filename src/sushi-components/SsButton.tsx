@@ -52,7 +52,7 @@ export default function Button({
 
   const className = classNames(
     link && "ss-link",
-    primary ? "" : "-secondary",
+    primary && "-primary",
     secondary && "-secondary",
     color && colorClassName[color],
     disable && "disable"
