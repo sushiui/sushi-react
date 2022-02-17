@@ -14,6 +14,8 @@ type ButtonProps = {
   disable?: boolean
   link?: boolean,
   path?: string,
+  href?: string,
+  newTab?: boolean,
 }
 
 const colorClassName = {
@@ -38,17 +40,21 @@ export default function Button({
     disable,
     link,
     path,
+    href,
+    newTab,
   }: ButtonProps) {
 
   const spanLeftIcon:JSX.Element = leftIcon ? <span className={`ss-icon-${leftIcon}`} /> : <></>;
   const spanRightIcon:JSX.Element = rightIcon ? <span className={`ss-icon-${rightIcon}`} /> : <></>;
   const content:string|React.ReactNode = label ? label : children;
 
+  const target = newTab ? {target:'_blank', rel:'noreferrer noopener'} : {}
+
   const className = classNames(
+    link && "ss-link",
     primary ? "" : "-secondary",
     secondary && "-secondary",
     color && colorClassName[color],
-    link && "ss-link",
     disable && "disable"
   )
 
@@ -60,17 +66,23 @@ export default function Button({
     </>
   );
 
-  if(link && path) {
-    return (<Link className={className} to={path}>{childrens}</Link>)
+  // Internal Link
+
+  if(path && link) {
+    return (<Link className={className} to={path} {...target}>{childrens}</Link>)
   }
 
   if(path) {
-    return (<Link className={`ss-button ${className}`} to={path}>{childrens}</Link>)
+    return (<Link className={`ss-button ${className}`} to={path} {...target}>{childrens}</Link>)
   }
 
-  if(link){
-    return <a className={className} onClick={onClick}>{childrens}</a>
+  // External Link
+
+  if(href) {
+    return (<a href={href} className={`ss-link ${className}`} {...target} >{childrens}</a>)
   }
+
+  // OnClick
 
   return <button className={className} onClick={onClick}>{childrens}</button>
 };

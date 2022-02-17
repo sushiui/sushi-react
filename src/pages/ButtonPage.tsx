@@ -4,6 +4,7 @@ import SsBody from "../sushi-components/SsBody";
 import SsCard from "../sushi-components/SsCard";
 import SsButton from "../sushi-components/SsButton";
 import SsCode from "../sushi-components/SsCode";
+import SsIcon from "../sushi-components/SsIcon";
 
 const codeSecondary:string = `
 <SsButton label="Primary Button"></SsButton>
@@ -82,6 +83,19 @@ const ButtonPage = () => {
             <div className="_flex-row" >
               <SsButton label="link text" disable />
               <SsButton link label="link text" disable />
+            </div>
+             <SsCode code={codeDisable} language="html" />
+          </SsBody>
+        </SsCard>
+        <SsCard title='&lt;SsButton/&gt; link to external in new tab'>
+          <SsBody>
+            <div className="_flex-row" >
+              <SsButton label="google.com" href="http://www.google.com" newTab/>
+              &nbsp;
+              <SsButton link href="http://www.google.com" newTab>
+                google.com
+                <SsIcon name='External-link' />
+              </SsButton>
             </div>
              <SsCode code={codeDisable} language="html" />
           </SsBody>

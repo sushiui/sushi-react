@@ -1,25 +1,25 @@
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
 import { MemoryRouter } from "react-router-dom";
-import Button from "../SsButton";
+import SsButton from "../SsButton";
 
 afterEach(() => {
   document.body.innerHTML = ''
 })
 
-describe('<Button>', () => {
+describe('<SsButton>', () => {
   describe('children', () => {
     it('assign children as String', () => {
-      render(<Button>Label</Button>);
+      render(<SsButton>Label</SsButton>);
       expect(screen.getByRole('button')).toBeInTheDocument();
       expect(screen.getByText('Label')).toBeInTheDocument();
     });
 
     it('assign children as Element', () => {
       render(
-        <Button>
+        <SsButton>
           <b>Private</b>
-        </Button>
+        </SsButton>
       );
       expect(screen.getByRole('button')).toBeInTheDocument();
       const child = screen.getByText('Private');
@@ -28,9 +28,9 @@ describe('<Button>', () => {
 
     it('show left and right icon from alt', () => {
       const { container } = render(
-        <Button label='Public' leftIcon='Search' rightIcon='Table-view'>
+        <SsButton label='Public' leftIcon='Search' rightIcon='Table-view'>
           <b>Private</b>
-        </Button>
+        </SsButton>
       );
       expect(container.getElementsByClassName('ss-icon-Search')[0]).toBeInTheDocument();
       expect(container.getElementsByClassName('ss-icon-Table-view')[0]).toBeInTheDocument();
@@ -38,9 +38,9 @@ describe('<Button>', () => {
 
     it('overide children with label', () => {
       render(
-        <Button label='Label Text'>
+        <SsButton label='Label Text'>
           Children Text
-        </Button>
+        </SsButton>
       );
       expect(screen.getByRole('button')).toBeInTheDocument;
       expect(screen.getByText('Label Text')).toBeInTheDocument();
@@ -51,7 +51,7 @@ describe('<Button>', () => {
   describe('color', () => {
     it('show red button', () => {
       const { container } = render(
-        <Button color="red" label='Red' />
+        <SsButton color="red" label='Red' />
       );
       expect(screen.getByRole('button')).toBeInTheDocument;;
       expect(container.getElementsByClassName("-purplish-red")[0]).toBeInTheDocument();
@@ -59,29 +59,29 @@ describe('<Button>', () => {
 
     it('show red button', () => {
       const { container } = render(
-        <Button color="purple" label='Purple' />
+        <SsButton color="purple" label='Purple' />
       );
       expect(screen.getByRole('button')).toBeInTheDocument;
       expect(container.getElementsByClassName("-purplish-blue")[0]).toBeInTheDocument();
     });
   });
 
-  describe('link', () => {
+  describe('OnClick as Link', () => {
     it('show simple link', () => {
       const {container} = render(
-        <Button link label='Label Text' />
+        <SsButton link label='Label Text' />
       );
       const child = screen.getByText('Label Text');
-      expect(child?.tagName).toBe('A');
+      expect(child?.tagName).toBe('BUTTON');
       expect(container.getElementsByClassName("ss-link")[0]).toBeInTheDocument();
     });
   });
 
-  describe('path', () => {
+  describe('Internal Link', () => {
     it('show button that route to path', () => {
       const {container} = render(
-        <MemoryRouter initialEntries={['/button']}>
-          <Button path="/" label='Label Text' />
+        <MemoryRouter initialEntries={['SsButton']}>
+          <SsButton path="/" label='Label Text' />
         </MemoryRouter>,
       );
       const child = screen.getByText('Label Text');
@@ -89,34 +89,71 @@ describe('<Button>', () => {
       expect(container.getElementsByClassName("ss-button")[0]).toBeInTheDocument();
     });
 
+    it('show button that route to path in new tab', () => {
+      const {getByText} = render(
+        <MemoryRouter initialEntries={['SsButton']}>
+          <SsButton path="/" label='Label Text' newTab/>
+        </MemoryRouter>
+      );
+      expect(getByText('Label Text')).toHaveAttribute('target','_blank');
+      expect(getByText('Label Text')).toHaveAttribute('rel','noreferrer noopener');
+    });
+
     it('show link that route to path', () => {
       const {container} = render(
-        <MemoryRouter initialEntries={['/button']}>
-          <Button link path="/" label='Label Text' />
+        <MemoryRouter initialEntries={['SsButton']}>
+          <SsButton link path="/" label='Label Text' />
         </MemoryRouter>
       );
       const child = screen.getByText('Label Text');
       expect(child?.tagName).toBe('A');
       expect(container.getElementsByClassName("ss-link")[0]).toBeInTheDocument();
     });
+
+    it('show link that route to path in new tab', () => {
+      const {getByText} = render(
+        <MemoryRouter initialEntries={['SsButton']}>
+          <SsButton link path="/" label='Label Text' newTab/>
+        </MemoryRouter>
+      );
+      expect(getByText('Label Text')).toHaveAttribute('target','_blank');
+      expect(getByText('Label Text')).toHaveAttribute('rel','noreferrer noopener');
+    });
   });
 
   describe('disable', () => {
     it('show link as disable', () => {
       const {container} = render(
-        <Button link label='Label Text' disable/>
+        <SsButton link label='Label Text' disable/>
       );
       const child = screen.getByText('Label Text');
-      expect(child?.tagName).toBe('A');
+      expect(child?.tagName).toBe('BUTTON');
+      expect(container.getElementsByClassName("ss-link")[0]).toBeInTheDocument();
       expect(container.getElementsByClassName("disable")[0]).toBeInTheDocument();
     });
     it('show button as disable', () => {
       const {container} = render(
-        <Button label='Label Text' disable/>
+        <SsButton label='Label Text' disable/>
       );
       screen.getByText('Label Text');
       expect(screen.getByRole('button')).toBeInTheDocument;
       expect(container.getElementsByClassName("disable")[0]).toBeInTheDocument();
     });
+  });
+
+  describe('link to external', () => {
+     it('Should show herf', () => {
+       const {getByText} = render(
+         <SsButton href='https://www.google.com' label='google.com' />
+       );
+       expect(getByText('google.com')).toHaveAttribute('href','https://www.google.com');
+     });
+     it('Open in new windows', () => {
+       const {getByText} = render(
+         <SsButton href='https://www.google.com' label='google.com' newTab />
+       );
+       expect(getByText('google.com')).toHaveAttribute('target','_blank');
+       expect(getByText('google.com')).toHaveAttribute('rel','noreferrer noopener');
+     });
   });
 });
