@@ -1,6 +1,7 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import ButtonPage from "./pages/ButtonPage";
+import LinkPage from "./pages/LinkPage";
 import IconPage from "./pages/IconPage";
 import Layout from "./Layout";
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -13,6 +14,7 @@ export default function App() {
     {index:'icon', title:'Icon',path:'/icon',icon:'Settings-suggest'},
     {index:'component', title:'Component',path:'',icon:'Table-view'},
     {index:'button', title:'Button',path:'/button',icon:'Status-circle'},
+    {index:'link', title:'Link',path:'/link',icon:'Status-circle'},
     {index:'textfield', title:'Textfield',path:'/textfield',icon:'Status-circle'},
     {index:'menu', title:'Page Menu',path:'/menu',icon:'Status-circle'},
     {index:'pageheader', title:'Page Header',path:'/pageheader',icon:'Status-circle'},
@@ -25,6 +27,7 @@ export default function App() {
         <Route index element={<HomePage />} />
         <Route path='/icon' element={<IconPage />} />
         <Route path='/button' element={<ButtonPage />} />
+        <Route path='/link' element={<LinkPage />} />
       </Route>
     </Routes>
   );
