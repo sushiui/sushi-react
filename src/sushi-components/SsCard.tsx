@@ -1,4 +1,5 @@
 import React from "react";
+
 import SsHeader from "./SsHeader";
 
 type ssCardProps = {
