@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect } from "react";
 import Prism from "prismjs";
 import "prismjs/themes/prism-solarizedlight.css";

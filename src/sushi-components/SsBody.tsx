@@ -1,3 +1,5 @@
+import React from "react";
+
 type ssBodyProps = {
   className?: string;
   children?: React.ReactNode;

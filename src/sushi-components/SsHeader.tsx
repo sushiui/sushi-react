@@ -1,3 +1,5 @@
+import React from "react";
+
 type ssHeaderProps = {
   className?: string;
   children?: React.ReactNode;

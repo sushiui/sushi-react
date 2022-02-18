@@ -22,7 +22,6 @@ export default function SsLink({
   leftIcon,
   rightIcon,
   disable,
-  link,
   path,
   href,
   newTab,

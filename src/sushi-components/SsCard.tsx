@@ -1,3 +1,4 @@
+import React from "react";
 import SsHeader from "./SsHeader";
 
 type ssCardProps = {
@@ -15,9 +16,8 @@ const SsCard = ({title, children}:ssCardProps) => {
         {children}
       </div>
     );
-  } else {
-    return <div className='ss-card'>{children}</div>;
   }
+  return <div className='ss-card'>{children}</div>;
 };
 
 export default SsCard;

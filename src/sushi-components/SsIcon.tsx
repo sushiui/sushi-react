@@ -1,3 +1,5 @@
+import React from "react";
+
 type ssIconProps = {
   className?: string;
   name: string;
