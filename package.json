@@ -1,7 +1,7 @@
 {
   "name": "sushi-react",
   "version": "0.1.0",
-  "homepage": "https://sushiui.github.com/react-gh-pages",
+  "homepage": "https://sushiui.github.com/sushi-react",
   "private": true,
   "dependencies": {
     "@testing-library/react": "^12.1.2",
