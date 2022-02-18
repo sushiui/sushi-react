@@ -3,6 +3,7 @@ import SsSite from "./sushi-components/SsSite";
 import SsIcon from "./sushi-components/SsIcon";
 import SsBody from "./sushi-components/SsBody";
 import SsHeader from "./sushi-components/SsHeader";
+import type { HeaderMenu } from "./sushi-components/SsHeader";
 import SsButton from "./sushi-components/SsButton";
 import { Outlet } from "react-router-dom";
 import type { Menus } from "./sushi-components/SsMenu";
@@ -10,10 +11,11 @@ import { changeBackground } from "./sushi"
 
 type Props = {
   menus: Menus,
+  headerMenu: HeaderMenu,
   currentPath: string;
 }
 
-const Layout = ({menus, currentPath}:Props) => {
+const Layout = ({menus, headerMenu, currentPath}:Props) => {
 
   const currentPage = `${currentPath.substring(1)}-page`;
 
@@ -24,6 +26,9 @@ const Layout = ({menus, currentPath}:Props) => {
           <SsIcon name='Sushi' />
           Sushi Design System
         </span>
+
+        <SsHeader.Menu menus={headerMenu} currentPath={currentPath}/>
+
         <div className='_flex-grow-1'></div>
         <span className='account'>
           <SsButton

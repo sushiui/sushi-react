@@ -7,7 +7,7 @@ type Menus = {
   index:string,
   title:string,
   path:string,
-  icon:string,
+  icon?:string,
   selected?:boolean,
 }[]
 
@@ -38,9 +38,10 @@ export default function SsMenu ({menus, currentPath}:ssMenuProps) {
   };
 
   const menuList = menus.map((menu) => {
+    const spanLeftIcon:JSX.Element = menu.icon ? <SsIcon name={menu.icon} /> : <></>;
     return (
       <MenuItem key={menu.index} path={menu.path}>
-        <SsIcon name={menu.icon} />
+        {spanLeftIcon}
         <span className='label'>{menu.title}</span>
       </MenuItem>
     );

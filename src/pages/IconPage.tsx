@@ -138,7 +138,7 @@ const iconNames = [
 
 const allIcons = iconNames.map((iconName) => {
   return (
-    <div className="each-icon">
+    <div key={iconName} className="each-icon">
       <SsIcon className="_font-size-header" name={iconName} />
       <br />
       {iconName}

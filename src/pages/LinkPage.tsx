@@ -4,7 +4,6 @@ import SsBody from "../sushi-components/SsBody";
 import SsCard from "../sushi-components/SsCard";
 import SsCode from "../sushi-components/SsCode";
 import SsLink from "../sushi-components/SsLink";
-import SsIcon from "../sushi-components/SsIcon";
 
 const codeOnClick:string = `
 <SsLink label="Primary Button"></SsLink>
