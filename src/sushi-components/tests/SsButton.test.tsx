@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router";
 import SsButton from "../SsButton";
 
 afterEach(() => {
@@ -80,7 +80,7 @@ describe('<SsButton>', () => {
   describe('Internal Link', () => {
     it('show button that route to path', () => {
       const {container} = render(
-        <MemoryRouter initialEntries={['SsButton']}>
+        <MemoryRouter initialEntries={['/button']}>
           <SsButton path="/" label='Label Text' />
         </MemoryRouter>,
       );
@@ -91,7 +91,7 @@ describe('<SsButton>', () => {
 
     it('show button that route to path in new tab', () => {
       const {getByText} = render(
-        <MemoryRouter initialEntries={['SsButton']}>
+        <MemoryRouter initialEntries={['/button']}>
           <SsButton path="/" label='Label Text' newTab/>
         </MemoryRouter>
       );
@@ -101,7 +101,7 @@ describe('<SsButton>', () => {
 
     it('show link that route to path', () => {
       const {container} = render(
-        <MemoryRouter initialEntries={['SsButton']}>
+        <MemoryRouter initialEntries={['/button']}>
           <SsButton link path="/" label='Label Text' />
         </MemoryRouter>
       );
@@ -112,7 +112,7 @@ describe('<SsButton>', () => {
 
     it('show link that route to path in new tab', () => {
       const {getByText} = render(
-        <MemoryRouter initialEntries={['SsButton']}>
+        <MemoryRouter initialEntries={['/button']}>
           <SsButton link path="/" label='Label Text' newTab/>
         </MemoryRouter>
       );

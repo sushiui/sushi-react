@@ -28,7 +28,7 @@ const colorClassName = {
   gray:  "-gray",
 }
 
-export default function Button({
+export default function SsButton({
     onClick,
     label,
     children,
