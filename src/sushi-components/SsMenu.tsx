@@ -28,7 +28,7 @@ export default function SsMenu ({menus, currentPath}:ssMenuProps) {
 
   const MenuItem = ({path , children, className}:menuItemProps) => {
     if (path === '' || path == null) {
-      return <li><div className="title header">{children}</div></li>;
+      return <li><div className="header">{children}</div></li>;
     }
 
     const ClassName = classNames(

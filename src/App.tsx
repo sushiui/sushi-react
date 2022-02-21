@@ -25,23 +25,23 @@ export default function App() {
   const megaMenu:MegaMenu = [
     [
       {index:'head', title:'Header', className:'header'},
-      {index:'button', title:'Home',path:'/button'},
+      {index:'button', title:'Button',path:'/button'},
       {index:'icon', title:'Icon',path:'/icon'},
       {index:'link', title:'Link',path:'/link'},
     ],[
       {index:'head', title:'Header 2', className:'header'},
-      {index:'button', title:'Home',path:'/button'},
+      {index:'button', title:'Button',path:'/button'},
       {index:'icon', title:'Icon',path:'/icon'},
       {index:'link', title:'Link',path:'/link'},
     ],[
       {index:'head' },
-      {index:'button', title:'Home',path:'/button'},
+      {index:'button', title:'Button',path:'/button'},
       {index:'icon', title:'Icon',path:'/icon'},
       {index:'link', title:'Link',path:'/link'},
     ],[
-      {index:'head', title:'Header 3', className:'header'},
-      {index:'button', title:'Home',path:'/button'},
-      {index:'icon', title:'Icon',path:'/icon'},
+      {index:'head', title:'หัวทดสอบอันที่สามแบบยาว', className:'header'},
+      {index:'button', title:'ก่อนกดปุ่ม',path:'/button'},
+      {index:'icon', title:'จับ icon',path:'/icon'},
       {index:'link', title:'Link',path:'/link'},
     ],[
       {index:'head' },
@@ -56,7 +56,7 @@ export default function App() {
     {index:'button', title:'Button',path:'/button'},
     {index:'link', title:'Link',path:'/link'},
     {index:'component', title:'Component',path:'',rightIcon:'Maximize-arrow', megaMenu:megaMenu},
-    {index:'link', title:'Link',path:'/link'},
+    {index:'icon', title:'ไอคอน',path:'/icon'},
   ]
 
   return (
