@@ -6,7 +6,7 @@ import IconPage from "./pages/IconPage";
 import Layout from "./Layout";
 import { Routes, Route, useLocation } from "react-router-dom";
 import type { Menus } from "./sushi-components/SsMenu";
-import type { HeaderMenu } from "./sushi-components/SsHeader";
+import type { HeaderMenu, MegaMenu } from "./sushi-components/SsHeader";
 
 export default function App() {
 
@@ -22,16 +22,46 @@ export default function App() {
     {index:'siteheader', title:'Site Header',path:'/siteheader',icon:'Status-circle'},
   ]
 
+  const megaMenu:MegaMenu = [
+    [
+      {index:'head', title:'Header', className:'header'},
+      {index:'button', title:'Button',path:'/button'},
+      {index:'icon', title:'Icon',path:'/icon'},
+      {index:'link', title:'Link',path:'/link'},
+    ],[
+      {index:'head', title:'Header 2', className:'header'},
+      {index:'button', title:'Button',path:'/button'},
+      {index:'icon', title:'Icon',path:'/icon'},
+      {index:'link', title:'Link',path:'/link'},
+    ],[
+      {index:'head' },
+      {index:'button', title:'Button',path:'/button'},
+      {index:'icon', title:'Icon',path:'/icon'},
+      {index:'link', title:'Link',path:'/link'},
+    ],[
+      {index:'head', title:'หัวทดสอบอันที่สามแบบยาว', className:'header'},
+      {index:'button', title:'ก่อนกดปุ่ม',path:'/button'},
+      {index:'icon', title:'จับ icon',path:'/icon'},
+      {index:'link', title:'Link',path:'/link'},
+    ],[
+      {index:'head' },
+      {index:'button', title:'ปุ่มกด',path:'/button'},
+      {index:'icon', title:'ไอคอน',path:'/icon'},
+      {index:'link', title:'ลิงค์',path:'/link'},
+    ]
+  ]
+
   const headerMenu:HeaderMenu = [
     {index:'home', title:'Home', path:'/', leftIcon:'Home'},
     {index:'button', title:'Button',path:'/button'},
     {index:'link', title:'Link',path:'/link'},
-    {index:'component', title:'component',path:'',rightIcon:'Maximize-arrow'},
+    {index:'component', title:'Component',path:'',rightIcon:'Maximize-arrow', megaMenu:megaMenu},
+    {index:'icon', title:'ไอคอน',path:'/icon'},
   ]
 
   return (
     <Routes>
-      <Route path='/' element={<Layout menus={menus} currentPath={useLocation().pathname} headerMenu={headerMenu}/>} >
+      <Route path='/' element={<Layout menus={menus} headerMenu={headerMenu} currentPath={useLocation().pathname} />} >
         <Route index element={<HomePage />} />
         <Route path='/icon' element={<IconPage />} />
         <Route path='/button' element={<ButtonPage />} />
