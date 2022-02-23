@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
 import { MemoryRouter } from "react-router-dom";
+import '@testing-library/jest-dom';
 import SsLink from "../SsLink";
 
 afterEach(() => {
@@ -69,7 +70,7 @@ describe('<SsLink>', () => {
       const child = screen.getByText('Label Text');
       expect(child?.tagName).toBe('A');
       expect(container.getElementsByClassName("ss-link")[0]).toBeInTheDocument();
-      expect(child).toHaveAttribute('href','/button');
+      expect(child).toHaveProperty('href','http://localhost/button');
     });
     it('External link', () => {
       const {container} = render(
@@ -78,7 +79,7 @@ describe('<SsLink>', () => {
       const child = screen.getByText('Label Text');
       expect(child?.tagName).toBe('A');
       expect(container.getElementsByClassName("ss-link")[0]).toBeInTheDocument();
-      expect(child).toHaveAttribute('href','https://www.google.com');
+      expect(child).toHaveProperty('href','https://www.google.com/');
     });
   });
 
@@ -90,15 +91,15 @@ describe('<SsLink>', () => {
         </MemoryRouter>,
       );
       const child = screen.getByText('Label Text');
-      expect(child).toHaveAttribute('target','_blank');
-      expect(child).toHaveAttribute('rel','noreferrer noopener');
+      expect(child).toHaveProperty('target','_blank');
+      expect(child).toHaveProperty('rel','noreferrer noopener');
     });
     it('External Link open in new windows', () => {
       const {getByText} = render(
         <SsLink href='https://www.google.com' label='google.com' newTab />
       );
-      expect(getByText('google.com')).toHaveAttribute('target','_blank');
-      expect(getByText('google.com')).toHaveAttribute('rel','noreferrer noopener');
+      expect(getByText('google.com')).toHaveProperty('target','_blank');
+      expect(getByText('google.com')).toHaveProperty('rel','noreferrer noopener');
     });
  });
 });

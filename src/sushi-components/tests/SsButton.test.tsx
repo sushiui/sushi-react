@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
 import { MemoryRouter } from "react-router";
 import SsButton from "../SsButton";
+import '@testing-library/jest-dom';
 
 afterEach(() => {
   document.body.innerHTML = ''
@@ -95,8 +96,8 @@ describe('<SsButton>', () => {
           <SsButton path="/" label='Label Text' newTab/>
         </MemoryRouter>
       );
-      expect(getByText('Label Text')).toHaveAttribute('target','_blank');
-      expect(getByText('Label Text')).toHaveAttribute('rel','noreferrer noopener');
+      expect(getByText('Label Text')).toHaveProperty('target','_blank');
+      expect(getByText('Label Text')).toHaveProperty('rel','noreferrer noopener');
     });
 
     it('show link that route to path', () => {
@@ -116,8 +117,8 @@ describe('<SsButton>', () => {
           <SsButton link path="/" label='Label Text' newTab/>
         </MemoryRouter>
       );
-      expect(getByText('Label Text')).toHaveAttribute('target','_blank');
-      expect(getByText('Label Text')).toHaveAttribute('rel','noreferrer noopener');
+      expect(getByText('Label Text')).toHaveProperty('target','_blank');
+      expect(getByText('Label Text')).toHaveProperty('rel','noreferrer noopener');
     });
   });
 
@@ -146,14 +147,14 @@ describe('<SsButton>', () => {
        const {getByText} = render(
          <SsButton href='https://www.google.com' label='google.com' />
        );
-       expect(getByText('google.com')).toHaveAttribute('href','https://www.google.com');
+       expect(getByText('google.com')).toHaveProperty('href','https://www.google.com/');
      });
      it('Open in new windows', () => {
        const {getByText} = render(
          <SsButton href='https://www.google.com' label='google.com' newTab />
        );
-       expect(getByText('google.com')).toHaveAttribute('target','_blank');
-       expect(getByText('google.com')).toHaveAttribute('rel','noreferrer noopener');
+       expect(getByText('google.com')).toHaveProperty('target','_blank');
+       expect(getByText('google.com')).toHaveProperty('rel','noreferrer noopener');
      });
   });
 });

@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom'
+import '@testing-library/jest-dom';
 import SsPage from "../SsPage";
 
 afterEach(() => {

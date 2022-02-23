@@ -1,12 +1,13 @@
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom'
+import '@testing-library/jest-dom';
 import SsSite from "../SsSite";
 
 afterEach(() => {
   document.body.innerHTML = ''
 })
 
-describe('<Button>', () => {
+describe('<SsSite>', () => {
   it('Create simple header', () => {
     const {container} = render(<SsSite />);
     expect(container.firstChild).toHaveClass("ss-site")
@@ -14,8 +15,8 @@ describe('<Button>', () => {
 
   it('Add more className', () => {
     const {container} = render(<SsSite className="-nobreadcrumbs"/>);
-    expect(container.firstChild).toHaveClass("-nobreadcrumbs")
-    expect(container.firstChild).toHaveClass("ss-site")
+    expect(container.firstChild).toHaveClass("-nobreadcrumbs");
+    expect(container.firstChild).toHaveClass("ss-site");
   });
 
   it('Add children', () => {
