@@ -50,7 +50,12 @@ export default function SsMenu ({menus, currentPath}:ssMenuProps) {
   const menuList = menus.map((menu) => {
     const spanLeftIcon:JSX.Element = menu.icon ? <SsIcon name={menu.icon} /> : <></>;
     return (
-      <MenuItem key={menu.index} testid={menu.index} path={menu.path} className={menu.className} currentPath={currentPath} >
+      <MenuItem
+        key={menu.index}
+        testid={menu.index}
+        path={menu.path}
+        className={menu.className}
+        currentPath={currentPath} >
         {spanLeftIcon}
         <span className='label'>{menu.title ? menu.title : '\u00A0'}</span>
       </MenuItem>

@@ -7,7 +7,7 @@ afterEach(() => {
   document.body.innerHTML = ''
 })
 
-describe('<Button>', () => {
+describe('<SsHeader>', () => {
   it('Create simple header', () => {
     const {container} = render(<SsHeader />);
     expect(container.firstChild).toHaveClass("header")
