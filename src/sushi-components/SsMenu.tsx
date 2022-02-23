@@ -35,6 +35,9 @@ export default function SsMenu ({menus, currentPath}:ssMenuProps) {
       className && className
     )
 
+    console.log(currentPath)
+    console.log(path)
+
     return (
       <li className={path === currentPath ? 'selected' : ' '}>
         <Link to={path ? path : ''}>
