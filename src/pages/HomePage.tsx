@@ -1,3 +1,4 @@
+import React from "react";
 import SsPage from "../sushi-components/SsPage";
 import SsCard from "../sushi-components/SsCard";
 import SsHeader from "../sushi-components/SsHeader";
