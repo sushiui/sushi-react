@@ -18,7 +18,7 @@ type Props = {
 
 const Layout = ({menus, headerMenu, currentPath}:Props) => {
 
-  const currentPage = `${currentPath.substring(1)}-page`;
+  const currentPage = `${currentPath.replace("/sushi-react/","")}-page`;
 
   return (
     <SsSite className={currentPage}>
