@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SsIcon from "./SsIcon";
 import { classNames } from "../utilities/css"
+import SsIcon from "./SsIcon";
 
 type Menus = {
   index:string,
@@ -17,40 +17,44 @@ type ssMenuProps = {
   currentPath?: string,
 }
 
-export default function SsMenu ({menus, currentPath}:ssMenuProps) {
+type menuItemProps = {
+  testid: string,
+  path?: string,
+  children: React.ReactNode,
+  className?: string,
+  currentPath?: string,
+}
 
-  type menuItemProps = {
-    path?:string,
-    children: React.ReactNode,
-    className?: string,
+const MenuItem = ({testid ,path , children, className, currentPath}:menuItemProps) => {
+  const ClassName = classNames(
+    (path === currentPath) && "selected",
+    className && className
+  )
+
+  if (path === '' || path == null) {
+    return <li data-testid={testid}><div className="header">{children}</div></li>;
   }
 
-  const MenuItem = ({path , children, className}:menuItemProps) => {
-    if (path === '' || path == null) {
-      return <li><div className="header">{children}</div></li>;
-    }
+  return (
+    <li data-testid={testid} className={path === currentPath ? 'selected' : ' '}>
+      <Link to={path ? path : ''}>
+        {children}
+      </Link>
+    </li>
+  );
+};
 
-    const ClassName = classNames(
-      (path === currentPath) && "selected",
-      className && className
-    )
-
-    console.log(currentPath)
-    console.log(path)
-
-    return (
-      <li className={path === currentPath ? 'selected' : ' '}>
-        <Link to={path ? path : ''}>
-          {children}
-        </Link>
-      </li>
-    );
-  };
+export default function SsMenu ({menus, currentPath}:ssMenuProps) {
 
   const menuList = menus.map((menu) => {
     const spanLeftIcon:JSX.Element = menu.icon ? <SsIcon name={menu.icon} /> : <></>;
     return (
-      <MenuItem key={menu.index} path={menu.path} className={menu.className} >
+      <MenuItem
+        key={menu.index}
+        testid={menu.index}
+        path={menu.path}
+        className={menu.className}
+        currentPath={currentPath} >
         {spanLeftIcon}
         <span className='label'>{menu.title ? menu.title : '\u00A0'}</span>
       </MenuItem>
@@ -58,7 +62,7 @@ export default function SsMenu ({menus, currentPath}:ssMenuProps) {
   });
 
   return (
-    <ul className='ss-menu'>
+    <ul data-testid="ss-menu" className='ss-menu'>
       {menuList}
     </ul>
   );

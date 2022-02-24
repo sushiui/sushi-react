@@ -1,12 +1,13 @@
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom'
+import '@testing-library/jest-dom';
 import SsHeader from "../SsHeader";
 
 afterEach(() => {
   document.body.innerHTML = ''
 })
 
-describe('<Button>', () => {
+describe('<SsHeader>', () => {
   it('Create simple header', () => {
     const {container} = render(<SsHeader />);
     expect(container.firstChild).toHaveClass("header")

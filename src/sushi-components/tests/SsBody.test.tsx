@@ -1,12 +1,13 @@
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom'
+import '@testing-library/jest-dom';
 import SsBody from "../SsBody";
 
 afterEach(() => {
   document.body.innerHTML = ''
 })
 
-describe('<Button>', () => {
+describe('<SsBody>', () => {
   it('Create simple header', () => {
     const {container} = render(<SsBody />);
     expect(container.firstChild).toHaveClass("body")
