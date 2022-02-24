@@ -9,7 +9,6 @@ afterEach(() => {
   document.body.innerHTML = '';
 });
 
-
 describe ('Simple SsMenu', () => {
 
   const menus:Menus = [
