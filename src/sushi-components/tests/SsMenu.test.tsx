@@ -133,20 +133,20 @@ describe ('Icon in Menu', () => {
       </MemoryRouter>
     );
 
-    const indexMenuIcon = screen.getByTestId('index');
-    expect(indexMenuIcon.firstElementChild?.firstChild).toHaveClass('label');
-    expect(indexMenuIcon.firstElementChild?.firstChild?.nodeName).toBe('SPAN');
+    const indexMenu = screen.getByTestId('index');
+    expect(indexMenu.firstElementChild?.firstChild).toHaveClass('label');
+    expect(indexMenu.firstElementChild?.firstChild?.nodeName).toBe('SPAN');
 
-    const iconMenuIcon = screen.getByTestId('icon');
-    expect(iconMenuIcon.firstElementChild?.firstChild).toHaveClass('label');
-    expect(iconMenuIcon.firstElementChild?.firstChild?.nodeName).toBe('SPAN');
+    const iconMenu = screen.getByTestId('icon');
+    expect(iconMenu.firstElementChild?.firstChild).toHaveClass('label');
+    expect(iconMenu.firstElementChild?.firstChild?.nodeName).toBe('SPAN');
 
-    const componentMenuIcon = screen.getByTestId('component');
-    expect(componentMenuIcon.firstElementChild?.firstChild).toHaveClass('ss-icon-Table-view');
-    expect(componentMenuIcon.firstElementChild?.firstChild?.nodeName).toBe('SPAN');
+    const componentMenu = screen.getByTestId('component');
+    expect(componentMenu.firstElementChild?.firstChild).toHaveClass('ss-icon-Table-view');
+    expect(componentMenu.firstElementChild?.firstChild?.nodeName).toBe('SPAN');
 
-    const buttonMenuIcon = screen.getByTestId('button');
-    expect(buttonMenuIcon.firstElementChild?.firstChild).toHaveClass('ss-icon-Status-circle');
-    expect(buttonMenuIcon.firstElementChild?.firstChild?.nodeName).toBe('SPAN');
+    const buttonMenu = screen.getByTestId('button');
+    expect(buttonMenu.firstElementChild?.firstChild).toHaveClass('ss-icon-Status-circle');
+    expect(buttonMenu.firstElementChild?.firstChild?.nodeName).toBe('SPAN');
   });
 });

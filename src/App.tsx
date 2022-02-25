@@ -64,7 +64,10 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path={base} element={<Layout menus={menus} headerMenu={headerMenu} currentPath={useLocation().pathname} />} >
+      <Route path={base} element={ <Layout
+          menus={menus}
+          headerMenu={headerMenu}
+          currentPath={useLocation().pathname} /> } >
         <Route index element={<HomePage />} />
         <Route path={`${base}/icon`} element={<IconPage />} />
         <Route path={`${base}/button`} element={<ButtonPage />} />

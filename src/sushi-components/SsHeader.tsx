@@ -13,7 +13,7 @@ type MegaMenu = Array<Menus>;
 type HeaderMenu = {
   index:string,
   title:string,
-  path:string,
+  path?:string,
   leftIcon?:string,
   rightIcon?:string,
   selected?:boolean,
@@ -37,14 +37,19 @@ SsHeader.Menu = ({menus, currentPath}:SsHeaderMenuProps) => {
     const spanRightIcon:JSX.Element = menu.rightIcon ? <SsIcon name={menu.rightIcon} /> : <></>;
 
     if(menu.megaMenu) {
-      const subMenus = menu.megaMenu.map((subMenu) => {
+      const subMenus = menu.megaMenu.map((subMenu, index) => {
         return(
-          <SsMenu currentPath={currentPath} menus={subMenu} />
+          <SsMenu
+            testid={`${menu.index}-${index}`}
+            key={index}
+            currentPath={currentPath}
+            menus={subMenu}
+          />
         );
       });
 
       return (
-        <li key={menu.index} className="-dropdownMega">
+        <li data-testid={menu.index} key={menu.index} className="-dropdownMega">
           <a href="#">
             {spanLeftIcon}
             <span className="label">{menu.title}</span>
@@ -60,8 +65,8 @@ SsHeader.Menu = ({menus, currentPath}:SsHeaderMenuProps) => {
     }
 
     return (
-      <li key={menu.index} className={menu.path === currentPath ? 'selected' : ''}>
-        <a href={menu.path}>
+      <li data-testid={menu.index} key={menu.index} className={menu.path === currentPath ? 'selected' : ''}>
+        <a href={menu.path? menu.path : "#"}>
           {spanLeftIcon}
           <span className="label">{menu.title}</span>
           {spanRightIcon}
