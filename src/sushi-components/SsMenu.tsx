@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import { classNames } from "../utilities/css"
 import SsIcon from "./SsIcon";
 
+type MenuItemProps = {
+  testid?: string,
+  path?: string,
+  children: React.ReactNode,
+  className?: string,
+  currentPath?: string,
+}
+
 type Menus = {
   index:string,
   title?:string,
@@ -11,14 +19,6 @@ type Menus = {
   selected?:boolean,
   className?:string
 }[]
-
-type MenuItemProps = {
-  testid?: string,
-  path?: string,
-  children: React.ReactNode,
-  className?: string,
-  currentPath?: string,
-}
 
 type ssMenuProps = {
   testid?: string,
