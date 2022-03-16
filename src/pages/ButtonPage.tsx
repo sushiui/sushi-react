@@ -8,9 +8,9 @@ import SsCode from "../sushi-components/SsCode";
 import SsIcon from "../sushi-components/SsIcon";
 
 const codeSecondary:string = `
-<SsButton label="Primary Button"></SsButton>
-<SsButton>Another Label</SsButton>
-<SsButton leftIcon='Search' rightIcon='Search'>Another Label</SsButton>
+<SsButton label="Attribute Label"></SsButton>
+<SsButton>Child Label</SsButton>
+<SsButton leftIcon='Search' rightIcon='Search'>icon Attribute label</SsButton>
 `;
 
 const codePrimary:string = `
@@ -34,6 +34,17 @@ const codeDisable:string =`
 <SsButton link label="link text" disable />
 `
 
+
+const codeExternal:string =`
+<SsButton label="google.com" href="http://www.google.com" newTab/>
+
+<SsButton link href="http://www.google.com" newTab>
+  google.com
+  <SsIcon name='External-link' />
+</SsButton>
+`
+
+
 const ButtonPage = () => {
   return (
     <SsPage>
@@ -44,9 +55,9 @@ const ButtonPage = () => {
         <SsCard title='&lt;SsButton /&gt;'>
           <SsBody>
              <div className="_flex-row">
-                <SsButton label="Primary Button"></SsButton>
-                <SsButton>Another Label</SsButton>
-                <SsButton leftIcon='Search' rightIcon='Search'>Another Label</SsButton>
+                <SsButton label="Attribute Label"></SsButton>
+                <SsButton>Child Label</SsButton>
+                <SsButton leftIcon='Search' rightIcon='Search'>icon Attribute label</SsButton>
              </div>
              <SsCode code={codeSecondary} language="html" />
           </SsBody>
@@ -88,7 +99,7 @@ const ButtonPage = () => {
              <SsCode code={codeDisable} language="html" />
           </SsBody>
         </SsCard>
-        <SsCard title='&lt;SsButton/&gt; link to external in new tab'>
+        <SsCard title='External link &lt;SsButton/&gt;b'>
           <SsBody>
             <div className="_flex-row" >
               <SsButton label="google.com" href="http://www.google.com" newTab/>
@@ -98,7 +109,7 @@ const ButtonPage = () => {
                 <SsIcon name='External-link' />
               </SsButton>
             </div>
-             <SsCode code={codeDisable} language="html" />
+             <SsCode code={codeExternal} language="html" />
           </SsBody>
         </SsCard>
       </SsBody>

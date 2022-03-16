@@ -28,10 +28,10 @@ const LinkPage = () => {
   return (
     <SsPage>
       <SsHeader className='-nobreadcrumbs'>
-        <span className='label'>Button</span>
+        <span className='label'>Link</span>
       </SsHeader>
       <SsBody>
-        <SsCard title='&lt;SsLink /&gt;'>
+        <SsCard title='&lt;SsLink /&gt; Action Link should render as &lt;Button/&gt; tag'>
           <SsBody>
              <div className="_flex-row">
                 <SsLink label="Primary Button"></SsLink>

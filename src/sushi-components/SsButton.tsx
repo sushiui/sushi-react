@@ -70,7 +70,7 @@ export default function SsButton({
   // Internal Link
 
   if(path && link) {
-    return (<Link className={className} to={path} {...target}>{childrens}</Link>)
+    return (<Link className={`${className}`} to={path} {...target}>{childrens}</Link>)
   }
 
   if(path) {
@@ -85,5 +85,5 @@ export default function SsButton({
 
   // OnClick
 
-  return <button className={className} onClick={onClick}>{childrens}</button>
+  return <button className={`ss-button ${className}`} onClick={onClick}>{childrens}</button>
 };
