@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import ButtonPage from "./pages/ButtonPage";
 import LinkPage from "./pages/LinkPage";
 import IconPage from "./pages/IconPage";
+import MenuPage from "./pages/MenuPage";
 import Layout from "./Layout";
 import { Routes, Route, useLocation } from "react-router-dom";
 import type { Menus } from "./sushi-components/SsMenu";
@@ -19,8 +20,8 @@ export default function App() {
     {index:'component', title:'Component',path:'',icon:'Table-view'},
     {index:'button', title:'Button',path:`${base}button`,icon:'Status-circle'},
     {index:'link', title:'Link',path:`${base}link`,icon:'Status-circle'},
+    {index:'menu', title:'Menu',path:`${base}menu`,icon:'Status-circle'},
     {index:'textfield', title:'Textfield',path:'/textfield',icon:'Status-circle'},
-    {index:'menu', title:'Page Menu',path:'/menu',icon:'Status-circle'},
     {index:'pageheader', title:'Page Header',path:'/pageheader',icon:'Status-circle'},
     {index:'siteheader', title:'Site Header',path:'/siteheader',icon:'Status-circle'},
   ]
@@ -72,6 +73,7 @@ export default function App() {
         <Route path={`${base}/icon`} element={<IconPage />} />
         <Route path={`${base}/button`} element={<ButtonPage />} />
         <Route path={`${base}/link`} element={<LinkPage />} />
+        <Route path={`${base}/menu`} element={<MenuPage />} />
       </Route>
     </Routes>
   );
