@@ -27,17 +27,22 @@ type ssMenuProps = {
 }
 
 const MenuItem = ({testid ,path , children, className, currentPath}:MenuItemProps) => {
-  const ClassName = classNames(
+  const _className = classNames(
     (path === currentPath) && "selected",
     className && className
   )
+
+  console.log("Menu Item, p:" + path + " c:" + currentPath );
+  if (path === currentPath){
+    console.log(_className);
+  }
 
   if (path === '' || path == null) {
     return <li data-testid={testid}><div className="header">{children}</div></li>;
   }
 
   return (
-    <li data-testid={testid} className={path === currentPath ? 'selected' : ' '}>
+    <li data-testid={testid} className={_className}>
       <Link to={path ? path : ''}>
         {children}
       </Link>

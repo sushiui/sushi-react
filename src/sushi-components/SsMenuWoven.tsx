@@ -6,40 +6,48 @@ import SsIcon from "./SsIcon";
 type MenuItemProps = {
   testid?: string,
   path?: string,
-  children: React.ReactNode,
+  header?: boolean,
   className?: string,
   currentPath?: string,
+  children: React.ReactNode,
 }
 
-type Menus = {
+type MenusWoven = {
   index:string,
   title?:string,
   path?:string,
-  icon?:string,
+  header?:boolean,
   selected?:boolean,
   className?:string
 }[]
 
 type ssMenuProps = {
   testid?: string,
-  menus: Menus,
+  menus: MenusWoven,
   currentPath?: string,
 }
 
-const MenuItem = ({testid ,path , children, className, currentPath}:MenuItemProps) => {
-  const ClassName = classNames(
+const MenuItem = ({testid ,path , children, className, currentPath, header}:MenuItemProps) => {
+  const _className = classNames(
     (path === currentPath) && "selected",
     className && className
-  )
+  );
 
-  if (path === '' || path == null) {
-    return <li data-testid={testid}><div className="header">{children}</div></li>;
-  }
+  const _circleClassName = header? "circle -big" : "circle";
 
   return (
-    <li data-testid={testid} className={path === currentPath ? 'selected' : ' '}>
+    <li data-testid={testid} className={_className}>
+      <div className="relative">
+        <div className="line">
+          <div className="top"></div>
+          <div className="background"></div>
+          <div className="bottom"></div>
+        </div>
+      </div>
       <Link to={path ? path : ''}>
-        {children}
+        <div className="status">
+          <div className={_circleClassName}>&nbsp;</div>
+        </div><span className="label">{children}</span>
       </Link>
     </li>
   );
@@ -48,25 +56,24 @@ const MenuItem = ({testid ,path , children, className, currentPath}:MenuItemProp
 export default function SsMenuWoven ({testid, menus, currentPath}:ssMenuProps) {
 
   const menuList = menus.map((menu) => {
-    const spanLeftIcon:JSX.Element = menu.icon ? <SsIcon name={menu.icon} /> : <></>;
     return (
       <MenuItem
         key={menu.index}
         testid={menu.index}
         path={menu.path}
+        header={menu.header}
         className={menu.className}
         currentPath={currentPath} >
-        {spanLeftIcon}
         <span className='label'>{menu.title ? menu.title : '\u00A0'}</span>
       </MenuItem>
     );
   });
 
   return (
-    <ul data-testid={testid? testid : 'ss-menu'} className='ss-menu'>
+    <ul data-testid={testid? testid : 'ss-menu-woven'} className='ss-menu-woven'>
       {menuList}
     </ul>
   );
 };
 
-export type {Menus};
+export type { MenusWoven };
