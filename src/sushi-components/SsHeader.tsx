@@ -2,6 +2,7 @@ import React from "react";
 import SsIcon from "./SsIcon";
 import type { Menus } from "./SsMenu";
 import SsMenu from "./SsMenu";
+import { Link } from "react-router-dom";
 
 type SsHeaderProps = {
   className?: string;
@@ -66,11 +67,11 @@ SsHeader.Menu = ({menus, currentPath}:SsHeaderMenuProps) => {
 
     return (
       <li data-testid={menu.index} key={menu.index} className={menu.path === currentPath ? 'selected' : ''}>
-        <a href={menu.path? menu.path : "#"}>
+        <Link to={menu.path? menu.path : "#"}>
           {spanLeftIcon}
           <span className="label">{menu.title}</span>
           {spanRightIcon}
-        </a>
+        </Link>
       </li>
     );
   });

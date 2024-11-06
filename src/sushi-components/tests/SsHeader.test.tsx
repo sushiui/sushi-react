@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom'
 import '@testing-library/jest-dom';
-import { MemoryRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import SsHeader from "../SsHeader";
 import type { HeaderMenu, MegaMenu } from "../SsHeader";
 
@@ -36,7 +36,11 @@ describe('<SsHeader.Menu/>', () => {
   ]
 
   it('Create simple header\'s menu', () => {
-    const {container} = render(<SsHeader.Menu menus={headerMenu} currentPath={currentPath}/>);
+    const {container} = render(
+      <HashRouter>
+        <SsHeader.Menu menus={headerMenu} currentPath={currentPath}/>
+      </HashRouter>
+    );
 
     expect(container.firstChild?.nodeName).toBe('UL');
     expect(container.innerHTML).toContain('Home');
@@ -66,14 +70,14 @@ describe('Mega Menu', () => {
   const megaMenu:MegaMenu = [
     [
       {index:'head1', title:'Header', className:'header'},
-      {index:'button1', title:'Button',path:'button'},
-      {index:'icon1', title:'Icon',path:'icon'},
-      {index:'link1', title:'Link',path:'link'},
+      {index:'button1', title:'Button',path:'/button'},
+      {index:'icon1', title:'Icon',path:'/icon'},
+      {index:'link1', title:'Link',path:'/link'},
     ],[
       {index:'head2', title:'Header 2', className:'header'},
-      {index:'button2', title:'Button',path:'button'},
-      {index:'icon2', title:'Icon',path:'icon'},
-      {index:'link2', title:'Link',path:'link'},
+      {index:'button2', title:'Button',path:'/button'},
+      {index:'icon2', title:'Icon',path:'/icon'},
+      {index:'link2', title:'Link',path:'/link'},
     ]
   ]
 
@@ -86,9 +90,9 @@ describe('Mega Menu', () => {
 
   it('Create simple mega menu', () => {
     const {container} = render(
-      <MemoryRouter initialEntries={['/button']}>
+      <HashRouter>
         <SsHeader.Menu menus={headerMenu} currentPath={currentPath}/>
-      </MemoryRouter>
+      </HashRouter>
     );
 
     const dropDownMega = screen.getByTestId('component')
