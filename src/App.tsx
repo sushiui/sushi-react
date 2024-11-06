@@ -21,9 +21,9 @@ export default function App() {
     {index:'button', title:'Button',path:`${base}button`,icon:'Status-circle'},
     {index:'link', title:'Link',path:`${base}link`,icon:'Status-circle'},
     {index:'menu', title:'Menu',path:`${base}menu`,icon:'Status-circle'},
-    {index:'textfield', title:'Textfield',path:'/textfield',icon:'Status-circle'},
-    {index:'pageheader', title:'Page Header',path:'/pageheader',icon:'Status-circle'},
-    {index:'siteheader', title:'Site Header',path:'/siteheader',icon:'Status-circle'},
+    {index:'textfield', title:'Textfield (soon)',path:'/textfield',icon:'Status-circle'},
+    {index:'pageheader', title:'Page Header (soon)',path:'/pageheader',icon:'Status-circle'},
+    {index:'siteheader', title:'Site Header (soon)',path:'/siteheader',icon:'Status-circle'},
   ]
 
   const megaMenu:MegaMenu = [

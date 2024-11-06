@@ -32,11 +32,6 @@ const MenuItem = ({testid ,path , children, className, currentPath}:MenuItemProp
     className && className
   )
 
-  console.log("Menu Item, p:" + path + " c:" + currentPath );
-  if (path === currentPath){
-    console.log(_className);
-  }
-
   if (path === '' || path == null) {
     return <li data-testid={testid}><div className="header">{children}</div></li>;
   }
